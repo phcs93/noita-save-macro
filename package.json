@@ -1,0 +1,21 @@
+{
+  "name": "noita-save-macro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:backup": "node index.js backup",
+    "start:restore": "node index.js restore",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phcs93/noita-save-macro.git"
+  },
+  "author": "phcs93",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phcs93/noita-save-macro/issues"
+  },
+  "homepage": "https://github.com/phcs93/noita-save-macro#readme"
+}
