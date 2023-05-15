@@ -1,7 +1,10 @@
 const fs = require("fs");
+const cp = require("child_process");
 
 const noitaFolder = `${process.env.APPDATA}/../LocalLow/Nolla_Games_Noita`;
 const backupFolder = `${noitaFolder}/backup`;
+const cwdNoita = `${process.env["ProgramFiles(x86)"]}\\Steam\\steamapps\\common\\Noita\\`
+const gameExePath = `start "" "${process.env["ProgramFiles(x86)"]}\\Steam\\steamapps\\common\\Noita\\noita.exe"`
 
 if (!fs.existsSync(backupFolder)) {
     fs.mkdirSync(backupFolder);
@@ -24,12 +27,6 @@ function restore() {
     console.log(`Copying [${from}] to [${to}]`);
     fs.cpSync(from, to, {recursive: true});
     console.log("Successfully restored!");
-}
-
-switch (process.argv[2]) {
-    case "backup": backup(); break;
-    case "restore": restore(); break;
-    default: console.log("Invalid argument!"); break;
 }
 
 function formatDate(date) {
@@ -62,3 +59,12 @@ function getLatestDate() {
         return null;
     }
 }
+
+switch (process.argv[2]) {
+    case "backup": backup(); break;
+    case "restore": restore(); break;
+    default: console.log("Invalid argument!"); break;
+}
+
+console.log(`Running game [${gameExePath}]`)
+cp.exec(gameExePath);
