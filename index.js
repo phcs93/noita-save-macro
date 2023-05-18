@@ -69,5 +69,6 @@ switch (process.argv[2]) {
 console.log(`Running game [${gameExePath}]`)
 cp.exec(gameExePath, {
     cwd: cwdNoita
+}, () => {
+    process.exit(0);
 });
-process.exit(0);
