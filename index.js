@@ -70,3 +70,4 @@ console.log(`Running game [${gameExePath}]`)
 cp.exec(gameExePath, {
     cwd: cwdNoita
 });
+process.exit(0);
